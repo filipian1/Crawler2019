@@ -69,6 +69,27 @@ void COM_LoadCommandList(void) {
 	commandList[i].reciveCanAction = transferToUart;
 	commandList[i].reciveUartAction = ignoreUART;
 	i++;
+
+	// komendy kompatybilne z ³azikiem i aplikacj¹
+	// start stop
+	//Sterowanie start,stop
+	commandList[i].ID = 21;
+	commandList[i].length = 1;
+	commandList[i].reciveCanAction = ignoreCAN;
+	commandList[i].reciveUartAction = transferToCan;
+	i++;
+	//reset silników
+	commandList[i].ID = 28;
+	commandList[i].length = 1;
+	commandList[i].reciveCanAction = ignoreCAN;
+	commandList[i].reciveUartAction = transferToCan;
+	i++;
+	//Sterowanie Predkosci referencyjne
+	commandList[i].ID = 20;
+	commandList[i].length = 6;
+	commandList[i].reciveCanAction = ignoreCAN;
+	commandList[i].reciveUartAction = transferToCan;
+	i++;
 	CommandListLenght=i;
 
 }
