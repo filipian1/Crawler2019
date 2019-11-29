@@ -161,6 +161,7 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* hcan)
 
 void CAN_Odbior()
 {
+	int8_t motorDuty = 0;
 	switch (CAN_RxHeader.StdId)
 	{
 	case 101:
@@ -176,6 +177,20 @@ void CAN_Odbior()
 		#ifdef LEWA_STRONA
 			REG_SetReference(CAN_Data[0]);
 		#endif
+		break;
+	case 21:
+		if (CAN_Data[0]==1) StartMotors();
+		else StopMotors();
+		break;
+	case 20:
+		/*if(CAN_Data[0]>127){
+			motorDuty = (int8_t)CAN_Data[0];
+		}
+		else{
+			motorDuty = CAN_Data[0];
+		}*/
+		motorDuty = (int8_t)CAN_Data[0];
+		REG_SetReference(motorDuty);
 		break;
 	}
 }

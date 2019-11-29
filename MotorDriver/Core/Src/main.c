@@ -66,7 +66,7 @@ int main(void)
   //ADC_Initialisation();
   CAN_Init();
   StopMotors();
-  REG_SetReference(20);
+  //REG_SetReference(20);
 
 //  clk_freq=HAL_RCC_GetPCLK1Freq();
 

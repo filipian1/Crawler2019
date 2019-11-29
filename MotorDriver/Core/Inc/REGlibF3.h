@@ -13,7 +13,7 @@
 #include "PWMlibF3.h"
 
 void REG_MainFunction();
-void REG_SetReference(uint16_t speed);
+void REG_SetReference(int16_t speed);
 void frequency_ret(int32_t abs_period1,int32_t abs_period2, int32_t abs_period3);
 
 

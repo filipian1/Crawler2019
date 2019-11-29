@@ -24,7 +24,7 @@ void REG_MainFunction()
 
 }
 
-void REG_SetReference(uint16_t speed)
+void REG_SetReference(int16_t speed)
 {
 	ReferencePulse=speed*REFERENCE_MULTIPILER;
 }
