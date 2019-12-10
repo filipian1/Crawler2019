@@ -209,6 +209,7 @@ void _Error_Handler(char *file, int line)
 void HAL_SYSTICK_Callback ()
 {
 	REG_MainFunction();
+	frequency_ret();
 	ADC_Function();
 }
 

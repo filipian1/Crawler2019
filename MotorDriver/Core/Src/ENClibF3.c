@@ -61,7 +61,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 				 EnkPeriod[0]= (-1)*AbsEnkPeriod[0];
 			 }
 
-			 //period_motor_1 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
+			 period_motor_1 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
 
 		  }
 
@@ -95,12 +95,12 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 			  }
 }
 
-void frequency_ret(int32_t abs_period1,int32_t abs_period2, int32_t abs_period3){
+void frequency_ret(){
 	int32_t pres = 10;
 	int32_t freq = 8000000;
-	f_obr_motor_1 = freq*50/(abs_period1*pres*64);
-	f_obr_motor_2 = freq*50/(abs_period2*pres*64);
-	f_obr_motor_3 = freq*50/(abs_period3*pres*64);
+	f_obr_motor_1 = freq*50/(EnkPeriod[0]*pres*64);
+	f_obr_motor_2 = freq*50/(EnkPeriod[1]*pres*64);
+	f_obr_motor_3 = freq*50/(EnkPeriod[2]*pres*64);
 }
 
 void ENK_TIM_Init()

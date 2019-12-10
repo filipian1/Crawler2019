@@ -14,7 +14,6 @@
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 void ENC_Init();
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim);
-void frequency_ret(int32_t abs_period1,int32_t abs_period2, int32_t abs_period3);
 void ENK_TIM_Init();
 
 /*volatile uint32_t period;

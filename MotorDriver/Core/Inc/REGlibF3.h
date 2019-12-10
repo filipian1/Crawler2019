@@ -14,7 +14,7 @@
 
 void REG_MainFunction();
 void REG_SetReference(int16_t speed);
-void frequency_ret(int32_t abs_period1,int32_t abs_period2, int32_t abs_period3);
+void frequency_ret();
 
 
 #endif /* INC_REGLIBF3_H_ */
