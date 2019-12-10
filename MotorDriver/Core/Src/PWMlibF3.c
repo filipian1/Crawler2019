@@ -55,7 +55,7 @@ void PWM_Init()
 
 }
 
-void StartMotors(){ // Okre
+void StartMotors(){ //
 
 	  	   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14 | GPIO_PIN_6, GPIO_PIN_RESET);
 		   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, GPIO_PIN_RESET);
@@ -83,22 +83,22 @@ void PWM_Set(int16_t counter){
 	TIM1->CCR3 = counter;
 	TIM1->CCR4 = 0;       //motor3
 
-	TIM1->CCR1 = 0;
-	TIM1->CCR2 = counter;       //motor2
+	TIM1->CCR1 = counter;
+	TIM1->CCR2 = 0;       //motor2
 
-	TIM15->CCR1 = 0;
-	TIM15->CCR2 = counter;			//motor1
+	TIM15->CCR1 = counter;
+	TIM15->CCR2 = 0;			//motor1
 	}
 	else
 	{
 	TIM1->CCR3= 0;
 	TIM1->CCR4 = -counter; 		//motor3
 
-	TIM1->CCR1 = -counter;
-	TIM1->CCR2 = 0;		//motor2
+	TIM1->CCR1 = 0;
+	TIM1->CCR2 = -counter;		//motor2
 
-	TIM15->CCR1 = -counter;
-	TIM15->CCR2 = 0;	//motor1
+	TIM15->CCR1 = 0;
+	TIM15->CCR2 = -counter;	//motor1
 	}
 #endif //LEFT_MOTORS
 
@@ -127,10 +127,7 @@ void PWM_Set(int16_t counter){
 	}
 #endif //RIGHT_MOTORS
 }
-PWM_Calcluate(uint8_t vx, uint8_t vy){
 
-
-}
 
 
 

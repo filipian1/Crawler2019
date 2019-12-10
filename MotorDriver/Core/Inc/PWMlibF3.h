@@ -19,5 +19,4 @@ void PWM_Init();
 void StartMotors();
 void StopMotors();
 void PWM_Set(int16_t counter);
-void PWM_Calcluate(uint8_t vx, uint8_t vy);
 #endif /* PWM_LIB_H_ */

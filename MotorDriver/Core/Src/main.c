@@ -45,6 +45,9 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 
+int enc1;
+int enc2;
+int enc3;
 
                                 
                                 
@@ -91,7 +94,7 @@ int main(void)
 
   while (1)
   {
-
+	  enc1 = TIM2->CNT;
 //	 HAL_Delay(500);
 	 //freMiniaturquency_ret(int32_t abs_period1,int32_t abs_period2, int32_t abs_period3);
 

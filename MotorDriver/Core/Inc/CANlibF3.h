@@ -11,8 +11,8 @@
 #include "stm32f3xx_hal.h"
 #include "stm32f3xx_hal_can.h"
 
-//#define LEFT_MOTORS
-#define RIGHT_MOTORS
+#define LEFT_MOTORS
+//#define RIGHT_MOTORS
 
 void CAN_Init(void);
 CAN_HandleTypeDef hcan;
