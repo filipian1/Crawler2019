@@ -1,5 +1,9 @@
 #include "TIMlibF3.h"
 
+volatile uint32_t period_motor_0;
+volatile int32_t abs_period_motor_0;
+volatile int32_t f_obr_motor_0;
+
 volatile uint32_t period_motor_1;
 volatile int32_t abs_period_motor_1;
 volatile int32_t f_obr_motor_1;
@@ -7,10 +11,6 @@ volatile int32_t f_obr_motor_1;
 volatile uint32_t period_motor_2;
 volatile int32_t abs_period_motor_2;
 volatile int32_t f_obr_motor_2;
-
-volatile uint32_t period_motor_3;
-volatile int32_t abs_period_motor_3;
-volatile int32_t f_obr_motor_3;
 
 volatile uint32_t AbsEnkPeriod[3];
 volatile int32_t EnkPeriod[3];
@@ -29,18 +29,18 @@ extern TIM_HandleTypeDef htim17;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	 if (htim->Instance==TIM2)
 	  {
-		 period_motor_1 = 0;
-		 abs_period_motor_1 = 0;
+		 period_motor_0 = 0;
+		 abs_period_motor_0 = 0;
 	  }
 	 if (htim->Instance==TIM16)
 	  {
-		 period_motor_2 = 0;
-		 abs_period_motor_2 = 0;
+		 period_motor_1 = 0;
+		 abs_period_motor_1 = 0;
 	  }
 	 if (htim->Instance==TIM17)
 	  {
-		 period_motor_3 = 0;
-		 abs_period_motor_3 = 0;
+		 period_motor_2 = 0;
+		 abs_period_motor_2 = 0;
 	  }
 }
 
@@ -61,7 +61,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 				 EnkPeriod[0]= (-1)*AbsEnkPeriod[0];
 			 }
 
-			 period_motor_1 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
+			 period_motor_0 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
 
 		  }
 
@@ -82,7 +82,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 
 		 if (htim->Instance==TIM17)
 			  {
-			 AbsEnkPeriod[1]=HAL_TIM_ReadCapturedValue(&htim17, TIM_CHANNEL_1);
+			 AbsEnkPeriod[2]=HAL_TIM_ReadCapturedValue(&htim17, TIM_CHANNEL_1);
 			 __HAL_TIM_SET_COUNTER(&htim17, 0);
 				 if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_11) == GPIO_PIN_SET)
 				 {
@@ -98,9 +98,9 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 void frequency_ret(){
 	int32_t pres = 10;
 	int32_t freq = 8000000;
-	f_obr_motor_1 = freq*50/(EnkPeriod[0]*pres*64);
-	f_obr_motor_2 = freq*50/(EnkPeriod[1]*pres*64);
-	f_obr_motor_3 = freq*50/(EnkPeriod[2]*pres*64);
+	f_obr_motor_0 = freq*50/(EnkPeriod[0]*pres*64);
+	f_obr_motor_1 = freq*50/(EnkPeriod[1]*pres*64);
+	f_obr_motor_2 = freq*50/(EnkPeriod[2]*pres*64);
 }
 
 void ENK_TIM_Init()

@@ -23,23 +23,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 00000030  00000000  00000000  00020014  2**0
                   CONTENTS, READONLY
- 10 .debug_info   000249f3  00000000  00000000  00020044  2**0
+ 10 .debug_info   000249f6  00000000  00000000  00020044  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 00003205  00000000  00000000  00044a37  2**0
+ 11 .debug_abbrev 00003205  00000000  00000000  00044a3a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000078cc  00000000  00000000  00047c3c  2**0
+ 12 .debug_loc    000078cc  00000000  00000000  00047c3f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges 00000b80  00000000  00000000  0004f508  2**3
+ 13 .debug_aranges 00000b80  00000000  00000000  0004f510  2**3
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges 00000af0  00000000  00000000  00050088  2**3
+ 14 .debug_ranges 00000af0  00000000  00000000  00050090  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   00006ece  00000000  00000000  00050b78  2**0
+ 15 .debug_line   00006ece  00000000  00000000  00050b80  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_str    00003d38  00000000  00000000  00057a46  2**0
+ 16 .debug_str    00003d3b  00000000  00000000  00057a4e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .comment      0000007c  00000000  00000000  0005b77e  2**0
+ 17 .comment      0000007c  00000000  00000000  0005b789  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  00001d04  00000000  00000000  0005b7fc  2**2
+ 18 .debug_frame  00001d04  00000000  00000000  0005b808  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -474,8 +474,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003d6:	f1b3 4f80 	cmp.w	r3, #1073741824	; 0x40000000
  80003da:	d008      	beq.n	80003ee <HAL_TIM_PeriodElapsedCallback+0x1a>
 	  {
-		 period_motor_1 = 0;
-		 abs_period_motor_1 = 0;
+		 period_motor_0 = 0;
+		 abs_period_motor_0 = 0;
 	  }
 	 if (htim->Instance==TIM16)
  80003dc:	6802      	ldr	r2, [r0, #0]
@@ -483,8 +483,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003e0:	429a      	cmp	r2, r3
  80003e2:	d00a      	beq.n	80003fa <HAL_TIM_PeriodElapsedCallback+0x26>
 	  {
-		 period_motor_2 = 0;
-		 abs_period_motor_2 = 0;
+		 period_motor_1 = 0;
+		 abs_period_motor_1 = 0;
 	  }
 	 if (htim->Instance==TIM17)
  80003e4:	6802      	ldr	r2, [r0, #0]
@@ -492,28 +492,28 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80003e8:	429a      	cmp	r2, r3
  80003ea:	d00c      	beq.n	8000406 <HAL_TIM_PeriodElapsedCallback+0x32>
  80003ec:	4770      	bx	lr
-		 period_motor_1 = 0;
+		 period_motor_0 = 0;
  80003ee:	2300      	movs	r3, #0
  80003f0:	4a0a      	ldr	r2, [pc, #40]	; (800041c <HAL_TIM_PeriodElapsedCallback+0x48>)
  80003f2:	6013      	str	r3, [r2, #0]
-		 abs_period_motor_1 = 0;
+		 abs_period_motor_0 = 0;
  80003f4:	4a0a      	ldr	r2, [pc, #40]	; (8000420 <HAL_TIM_PeriodElapsedCallback+0x4c>)
  80003f6:	6013      	str	r3, [r2, #0]
  80003f8:	e7f0      	b.n	80003dc <HAL_TIM_PeriodElapsedCallback+0x8>
-		 period_motor_2 = 0;
+		 period_motor_1 = 0;
  80003fa:	2300      	movs	r3, #0
  80003fc:	4a09      	ldr	r2, [pc, #36]	; (8000424 <HAL_TIM_PeriodElapsedCallback+0x50>)
  80003fe:	6013      	str	r3, [r2, #0]
-		 abs_period_motor_2 = 0;
+		 abs_period_motor_1 = 0;
  8000400:	4a09      	ldr	r2, [pc, #36]	; (8000428 <HAL_TIM_PeriodElapsedCallback+0x54>)
  8000402:	6013      	str	r3, [r2, #0]
  8000404:	e7ee      	b.n	80003e4 <HAL_TIM_PeriodElapsedCallback+0x10>
 	  {
-		 period_motor_3 = 0;
+		 period_motor_2 = 0;
  8000406:	2300      	movs	r3, #0
  8000408:	4a08      	ldr	r2, [pc, #32]	; (800042c <HAL_TIM_PeriodElapsedCallback+0x58>)
  800040a:	6013      	str	r3, [r2, #0]
-		 abs_period_motor_3 = 0;
+		 abs_period_motor_2 = 0;
  800040c:	4a08      	ldr	r2, [pc, #32]	; (8000430 <HAL_TIM_PeriodElapsedCallback+0x5c>)
  800040e:	6013      	str	r3, [r2, #0]
 	  }
@@ -522,12 +522,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  8000412:	bf00      	nop
  8000414:	40014400 	.word	0x40014400
  8000418:	40014800 	.word	0x40014800
- 800041c:	200008a0 	.word	0x200008a0
- 8000420:	20000878 	.word	0x20000878
- 8000424:	2000087c 	.word	0x2000087c
- 8000428:	2000086c 	.word	0x2000086c
- 800042c:	2000089c 	.word	0x2000089c
- 8000430:	20000874 	.word	0x20000874
+ 800041c:	2000088c 	.word	0x2000088c
+ 8000420:	200008a0 	.word	0x200008a0
+ 8000424:	2000089c 	.word	0x2000089c
+ 8000428:	20000874 	.word	0x20000874
+ 800042c:	20000878 	.word	0x20000878
+ 8000430:	20000868 	.word	0x20000868
 
 08000434 <HAL_TIM_IC_CaptureCallback>:
 
@@ -542,7 +542,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
  800043a:	f1b3 4f80 	cmp.w	r3, #1073741824	; 0x40000000
  800043e:	d008      	beq.n	8000452 <HAL_TIM_IC_CaptureCallback+0x1e>
 
-			 period_motor_1 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
+			 period_motor_0 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
 
 		  }
 
@@ -596,7 +596,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
  8000492:	681a      	ldr	r2, [r3, #0]
  8000494:	4b2b      	ldr	r3, [pc, #172]	; (8000544 <HAL_TIM_IC_CaptureCallback+0x110>)
  8000496:	601a      	str	r2, [r3, #0]
-			 period_motor_1 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
+			 period_motor_0 = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
  8000498:	2104      	movs	r1, #4
  800049a:	4828      	ldr	r0, [pc, #160]	; (800053c <HAL_TIM_IC_CaptureCallback+0x108>)
  800049c:	f002 f8c1 	bl	8002622 <HAL_TIM_ReadCapturedValue>
@@ -640,13 +640,13 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
  80004e8:	605a      	str	r2, [r3, #4]
  80004ea:	e7ad      	b.n	8000448 <HAL_TIM_IC_CaptureCallback+0x14>
 			  {
-			 AbsEnkPeriod[1]=HAL_TIM_ReadCapturedValue(&htim17, TIM_CHANNEL_1);
+			 AbsEnkPeriod[2]=HAL_TIM_ReadCapturedValue(&htim17, TIM_CHANNEL_1);
  80004ec:	4c19      	ldr	r4, [pc, #100]	; (8000554 <HAL_TIM_IC_CaptureCallback+0x120>)
  80004ee:	2100      	movs	r1, #0
  80004f0:	4620      	mov	r0, r4
  80004f2:	f002 f896 	bl	8002622 <HAL_TIM_ReadCapturedValue>
  80004f6:	4b12      	ldr	r3, [pc, #72]	; (8000540 <HAL_TIM_IC_CaptureCallback+0x10c>)
- 80004f8:	6058      	str	r0, [r3, #4]
+ 80004f8:	6098      	str	r0, [r3, #8]
 			 __HAL_TIM_SET_COUNTER(&htim17, 0);
  80004fa:	6823      	ldr	r3, [r4, #0]
  80004fc:	2200      	movs	r2, #0
@@ -688,8 +688,8 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
  8000538:	40014800 	.word	0x40014800
  800053c:	20000964 	.word	0x20000964
  8000540:	20000890 	.word	0x20000890
- 8000544:	20000884 	.word	0x20000884
- 8000548:	200008a0 	.word	0x200008a0
+ 8000544:	20000880 	.word	0x20000880
+ 8000548:	2000088c 	.word	0x2000088c
  800054c:	200009a4 	.word	0x200009a4
  8000550:	48000800 	.word	0x48000800
  8000554:	200008e4 	.word	0x200008e4
@@ -699,7 +699,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 void frequency_ret(){
 	int32_t pres = 10;
 	int32_t freq = 8000000;
-	f_obr_motor_1 = freq*50/(EnkPeriod[0]*pres*64);
+	f_obr_motor_0 = freq*50/(EnkPeriod[0]*pres*64);
  8000558:	480e      	ldr	r0, [pc, #56]	; (8000594 <frequency_ret+0x3c>)
  800055a:	6802      	ldr	r2, [r0, #0]
  800055c:	eb02 0282 	add.w	r2, r2, r2, lsl #2
@@ -709,7 +709,7 @@ void frequency_ret(){
  8000566:	fb92 f3f3 	sdiv	r3, r2, r3
  800056a:	490c      	ldr	r1, [pc, #48]	; (800059c <frequency_ret+0x44>)
  800056c:	600b      	str	r3, [r1, #0]
-	f_obr_motor_2 = freq*50/(EnkPeriod[1]*pres*64);
+	f_obr_motor_1 = freq*50/(EnkPeriod[1]*pres*64);
  800056e:	6841      	ldr	r1, [r0, #4]
  8000570:	eb01 0181 	add.w	r1, r1, r1, lsl #2
  8000574:	004b      	lsls	r3, r1, #1
@@ -717,7 +717,7 @@ void frequency_ret(){
  8000578:	fb92 f3f3 	sdiv	r3, r2, r3
  800057c:	4908      	ldr	r1, [pc, #32]	; (80005a0 <frequency_ret+0x48>)
  800057e:	600b      	str	r3, [r1, #0]
-	f_obr_motor_3 = freq*50/(EnkPeriod[2]*pres*64);
+	f_obr_motor_2 = freq*50/(EnkPeriod[2]*pres*64);
  8000580:	6883      	ldr	r3, [r0, #8]
  8000582:	eb03 0383 	add.w	r3, r3, r3, lsl #2
  8000586:	0059      	lsls	r1, r3, #1
@@ -726,11 +726,11 @@ void frequency_ret(){
  800058e:	4b05      	ldr	r3, [pc, #20]	; (80005a4 <frequency_ret+0x4c>)
  8000590:	601a      	str	r2, [r3, #0]
  8000592:	4770      	bx	lr
- 8000594:	20000884 	.word	0x20000884
+ 8000594:	20000880 	.word	0x20000880
  8000598:	17d78400 	.word	0x17d78400
- 800059c:	20000880 	.word	0x20000880
- 80005a0:	20000870 	.word	0x20000870
- 80005a4:	20000868 	.word	0x20000868
+ 800059c:	20000870 	.word	0x20000870
+ 80005a0:	2000087c 	.word	0x2000087c
+ 80005a4:	2000086c 	.word	0x2000086c
 
 080005a8 <ENK_TIM_Init>:
 }
@@ -2002,14 +2002,14 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
  8000da4:	4830      	ldr	r0, [pc, #192]	; (8000e68 <MX_TIM15_Init+0xc8>)
  8000da6:	4b31      	ldr	r3, [pc, #196]	; (8000e6c <MX_TIM15_Init+0xcc>)
  8000da8:	6003      	str	r3, [r0, #0]
-  htim15.Init.Prescaler = 72;
- 8000daa:	2348      	movs	r3, #72	; 0x48
+  htim15.Init.Prescaler = 71;
+ 8000daa:	2347      	movs	r3, #71	; 0x47
  8000dac:	6043      	str	r3, [r0, #4]
   htim15.Init.CounterMode = TIM_COUNTERMODE_UP;
  8000dae:	2300      	movs	r3, #0
  8000db0:	6083      	str	r3, [r0, #8]
-  htim15.Init.Period = 1000;
- 8000db2:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  htim15.Init.Period = 999;
+ 8000db2:	f240 32e7 	movw	r2, #999	; 0x3e7
  8000db6:	60c2      	str	r2, [r0, #12]
   htim15.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  8000db8:	6103      	str	r3, [r0, #16]
@@ -2242,15 +2242,15 @@ void _Error_Handler(char *file, int line)
  8000f30:	b01d      	add	sp, #116	; 0x74
  8000f32:	f85d fb04 	ldr.w	pc, [sp], #4
 	    _Error_Handler(__FILE__, __LINE__);
- 8000f36:	2186      	movs	r1, #134	; 0x86
+ 8000f36:	2187      	movs	r1, #135	; 0x87
  8000f38:	4806      	ldr	r0, [pc, #24]	; (8000f54 <SystemClock_Config+0x98>)
  8000f3a:	f7ff ffbd 	bl	8000eb8 <_Error_Handler>
 	    _Error_Handler(__FILE__, __LINE__);
- 8000f3e:	2194      	movs	r1, #148	; 0x94
+ 8000f3e:	2195      	movs	r1, #149	; 0x95
  8000f40:	4804      	ldr	r0, [pc, #16]	; (8000f54 <SystemClock_Config+0x98>)
  8000f42:	f7ff ffb9 	bl	8000eb8 <_Error_Handler>
 	    _Error_Handler(__FILE__, __LINE__);
- 8000f46:	219c      	movs	r1, #156	; 0x9c
+ 8000f46:	219d      	movs	r1, #157	; 0x9d
  8000f48:	4802      	ldr	r0, [pc, #8]	; (8000f54 <SystemClock_Config+0x98>)
  8000f4a:	f7ff ffb5 	bl	8000eb8 <_Error_Handler>
  8000f4e:	bf00      	nop
