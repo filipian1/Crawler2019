@@ -48,6 +48,7 @@ static void MX_GPIO_Init(void);
 int enc1;
 int enc2;
 int enc3;
+int freq;
 
                                 
                                 
@@ -94,7 +95,7 @@ int main(void)
 
   while (1)
   {
-	  enc1 = TIM2->CNT;
+	  freq =HAL_RCC_GetHCLKFreq();
 //	 HAL_Delay(500);
 	 //freMiniaturquency_ret(int32_t abs_period1,int32_t abs_period2, int32_t abs_period3);
 
